@@ -57,6 +57,29 @@ public class RegUserController {
 		return "users";
 	}
 	
+	@RequestMapping("/new")
+	public String newUser(Model model) {
+		RegUser ru = new RegUser();
+		model.addAttribute("user", ru);
+		return "new";
+	}
+	
+	@RequestMapping("/create")
+	public String createUser(@ModelAttribute("user") RegUser u, Model model) {
+		
+		RegUser ru = new RegUser();
+		ru.setAdmin(u.getAdmin());
+		ru.setMail(u.getMail());
+		ru.setPassword(u.getPassword());
+		regUserRepository.save(ru);
+		
+		model.addAttribute("listaUsera",regUserRepository.findAll());
+		
+		return "users";
+		
+	}
+	
+	
 	@SuppressWarnings("unused")
 	private static class UserBody{
 		public String mail;

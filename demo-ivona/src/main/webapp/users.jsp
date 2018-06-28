@@ -18,7 +18,12 @@
 
 	        </td>
 	    </tr>
+	    
 	</c:forEach>
+	
+	<tr>
+	    <td><a href="/users/new">Create new</a></td>
+	</tr>
 
 </table>
 
