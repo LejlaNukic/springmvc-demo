@@ -24,6 +24,14 @@
 	<tr>
 	    <td><a href="/users/new">Create new</a></td>
 	</tr>
+	
+	<tr>
+	    <td><a href="/users/register">Register</a></td>
+	</tr>
+	
+	<tr>
+	    <td><a href="/users/login">Login</a></td>
+	</tr>
 
 </table>
 

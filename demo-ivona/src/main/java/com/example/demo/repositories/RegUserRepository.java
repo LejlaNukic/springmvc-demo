@@ -8,7 +8,7 @@ import com.example.demo.models.RegUser;
 
 public interface RegUserRepository extends CrudRepository<RegUser, Long>  {
 
-	RegUser findFirstByMailAndPassword(@Param("mail") String email,@Param("password") String password);
+	RegUser findFirstByMailAndPassword(String mail,String password);
 	RegUser findById(@Param("id") long id);
 
 }

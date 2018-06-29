@@ -64,6 +64,35 @@ public class RegUserController {
 		return "new";
 	}
 	
+	@RequestMapping("/login")
+	public String loginUser(Model model) {
+		RegUser ru = new RegUser();
+		model.addAttribute("user", ru);
+		return "login";
+	}
+	
+	@RequestMapping("/signin")
+	public String signinUser(@ModelAttribute("user") RegUser u, Model model) {
+		
+		System.out.println(u.getMail());
+		
+		RegUser ru = regUserRepository.findFirstByMailAndPassword(u.getMail(),u.getPassword());
+		System.out.println(ru);
+		if(ru!=null) {
+			model.addAttribute("listaUsera",regUserRepository.findAll());
+			return "users";
+		}
+		return "greska";
+	}
+	
+	
+	@RequestMapping("/register")
+	public String registerUser(Model model) {
+		RegUser ru = new RegUser();
+		model.addAttribute("user", ru);
+		return "register";
+	}
+	
 	@RequestMapping("/create")
 	public String createUser(@ModelAttribute("user") RegUser u, Model model) {
 		
